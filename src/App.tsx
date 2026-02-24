@@ -1,4 +1,3 @@
-import "./App.css";
 const name = "pedro";
 console.log(name);
 
