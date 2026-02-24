@@ -1,0 +1,41 @@
+.hero-container {
+  display: flex;
+  margin-left: 8rem;
+  margin-right: 8rem;
+  margin-bottom: 3rem;
+}
+.left-hero {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.hero-intro,
+.hero-description {
+  color: var(--font-color);
+  margin-bottom: 1rem;
+}
+.right-hero {
+  width: 40%;
+}
+.hero-picture {
+  width: 100%;
+  border-radius: 20%;
+}
+
+@media (max-width: 48rem) {
+  .hero-container {
+    flex-direction: column-reverse;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+  }
+  .left-hero,
+  .right-hero {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+}
