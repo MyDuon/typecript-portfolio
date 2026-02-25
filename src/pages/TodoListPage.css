@@ -1,0 +1,57 @@
+.todo-header {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.todo-form,
+.todo-task {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.todo-input {
+  font-size: 1.6rem;
+  padding: 1rem;
+  border: 0.125rem solid black;
+  border-radius: 0.5rem;
+  color: rgb(11, 11, 11);
+}
+.add-button {
+  font-size: 1.6rem;
+  padding: 1rem;
+  border: 0.125rem solid black;
+  border-radius: 0.5rem;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.5 ease;
+}
+.add-button:hover {
+  background-color: rgb(0, 198, 0);
+}
+.delete-button {
+  font-size: 1.6rem;
+  background-color: rgb(198, 27, 27);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.delete-button:hover {
+  background-color: rgb(255, 0, 0);
+}
+.task-container {
+  font-size: 1.6rem;
+  background-color: hsl(0, 0%, 97%);
+  margin-bottom: 1rem;
+  border: 0.2rem solid hsla(0, 0%, 85%, 0.75);
+  border-radius: 0.5rem;
+  width: 40rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.task-description {
+  font-size: 1.6rem;
+  padding-left: 1rem;
+  flex: 1;
+}
