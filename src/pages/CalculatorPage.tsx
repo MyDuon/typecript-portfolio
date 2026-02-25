@@ -1,51 +1,56 @@
 import Header from "../components/Header/Header";
 import { useState } from "react";
+import { evaluate } from "mathjs";
 import "./CalculatorPage.css";
 import ProjectDescription from "../components/ProjectDescription/ProjectDescription";
 
 function CalculatorPage() {
-  const [calc, setCalc] = useState("0");
-  const operation = ["+", "-", "*", "/", "."];
-  const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  var tmp = 0;
+  const [calc, setCalc] = useState<string>("0");
+  const operation: string[] = ["+", "-", "*", "/", "."];
+  const numbers: string[] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-  const updateCalc = (value) => {
+  const updateCalc = (value: string): void => {
     if (
       (value === "0" && calc === "0") ||
       (operation.includes(value) && calc === "0")
     ) {
       return;
     } else if (calc === "0" && numbers.includes(value)) {
-      setCalc(eval(value));
+      setCalc(String(evaluate(value)));
       return;
     }
     setCalc(calc + value);
+    console.log("the placeholder value:", calc + value);
   };
 
-  const calculate = (calculation) => {
+  const calculate = (calculation: string): void => {
+    console.log("the calculated value:", calculation);
+    let expression = calculation;
     if (
       calculation.endsWith("+") ||
       calculation.endsWith("-") ||
       calculation.endsWith("*") ||
       calculation.endsWith("/")
     ) {
-      var test = calculation.slice(0, -1);
-      tmp = eval(test);
-      setCalc(tmp);
+      expression = calculation.slice(0, -1);
+      console.log("after slicing:", expression);
+      const result: number = evaluate(expression);
+      console.log("the result:", result);
+      setCalc(String(result));
       return;
     }
-    tmp = eval(calculation);
-    setCalc(tmp);
+    const result: number = evaluate(expression);
+    setCalc(String(result));
   };
 
   const reset = () => {
     setCalc("0");
   };
 
-  const remove = (calc) => {
+  const remove = (calc: string): void => {
     if (calc.length > 1) {
-      var tmp = calc.slice(0, -1);
-      setCalc(tmp);
+      const hei = calc.slice(0, -1);
+      setCalc(hei);
     } else {
       reset();
     }
